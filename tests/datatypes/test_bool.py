@@ -132,7 +132,7 @@ class BinaryBoolOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_modulo_set',
 
         'test_multiply_bytearray',
-        'test_multiply_bytes',
+        #'test_multiply_bytes',
         'test_multiply_class',
         'test_multiply_complex',
         'test_multiply_float',
@@ -301,7 +301,7 @@ class InplaceBoolOperationTests(InplaceOperationTestCase, TranspileTestCase):
 
         'test_multiply_bool',
         'test_multiply_bytearray',
-        'test_multiply_bytes',
+        #'test_multiply_bytes',
         'test_multiply_class',
         'test_multiply_complex',
         'test_multiply_dict',
