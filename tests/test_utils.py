@@ -51,7 +51,7 @@ class JavaScriptNormalizationTests(unittest.TestCase):
             """,
             """
             ### EXCEPTION ###
-            TypeError: unsupported operand type(s) for &: 'float' and 'bool'
+            TypeError
                 test.py:3
             """
         )
@@ -85,7 +85,7 @@ class JavaScriptNormalizationTests(unittest.TestCase):
             """
             Hello, world.
             ### EXCEPTION ###
-            TypeError: unsupported operand type(s) for &: 'float' and 'bool'
+            TypeError
                 test.py:3
             """
         )
