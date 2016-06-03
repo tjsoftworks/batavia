@@ -360,7 +360,7 @@ MEMORY_REFERENCE = re.compile('0x[\dABCDEFabcdef]{4,16}')
 
 
 def cleanse_javascript(input):
-    out = JS_EXCEPTION.sub('### EXCEPTION ###{linesep}\\g<exception>: \\g<message>'.format(linesep=os.linesep), input)
+    out = JS_EXCEPTION.sub('### EXCEPTION ###{linesep}\\g<exception>{linesep}'.format(linesep=os.linesep), input)
     stack = JS_STACK.findall(input)
 
     stacklines = []
@@ -388,7 +388,7 @@ def cleanse_javascript(input):
 
 
 def cleanse_python(input):
-    out = PYTHON_EXCEPTION.sub('### EXCEPTION ###{linesep}\\g<exception>: \\g<message>'.format(linesep=os.linesep), input)
+    out = PYTHON_EXCEPTION.sub('### EXCEPTION ###{linesep}\\g<exception>{linesep}'.format(linesep=os.linesep), input)
     stack = PYTHON_STACK.findall(input)
     out = '%s%s%s' % (
         out,
@@ -449,14 +449,13 @@ class TranspileTestCase(TestCase):
             finally:
                 # Clean up the test directory where the class file was written.
                 shutil.rmtree(test_dir)
-                # print(js_out)
 
-            # Cleanse the Python and Java output, producing a simple
+            # Cleanse the Python and JavaScript output, producing a simple
             # normalized format for exceptions, floats etc.
             js_out = cleanse_javascript(js_out)
             py_out = cleanse_python(py_out)
 
-            # Confirm that the output of the Java code is the same as the Python code.
+            # Confirm that the output of the JavaScript code is the same as the Python code.
             if message:
                 context = 'Global context: %s' % message
             else:
@@ -495,14 +494,13 @@ class TranspileTestCase(TestCase):
             finally:
                 # Clean up the test directory where the class file was written.
                 shutil.rmtree(test_dir)
-                # print(js_out)
 
-            # Cleanse the Python and Java output, producing a simple
+            # Cleanse the Python and JavaScript output, producing a simple
             # normalized format for exceptions, floats etc.
             js_out = cleanse_javascript(js_out)
             py_out = cleanse_python(py_out)
 
-            # Confirm that the output of the Java code is the same as the Python code.
+            # Confirm that the output of the JavaScript code is the same as the Python code.
             if message:
                 context = 'Function context: %s' % message
             else:
@@ -513,7 +511,7 @@ class TranspileTestCase(TestCase):
         "Run code under JavaScript and check the output is as expected"
         self.maxDiff = None
         #==================================================
-        # Prep - compile any required Java sources
+        # Prep - compile any required JavaScript sources
         #==================================================
         # Cleanse the Python output, producing a simple
         # normalized format for exceptions, floats etc.
@@ -551,11 +549,11 @@ class TranspileTestCase(TestCase):
                 shutil.rmtree(test_dir)
                 # print(js_out)
 
-            # Cleanse the Java output, producing a simple
+            # Cleanse the JavaScript output, producing a simple
             # normalized format for exceptions, floats etc.
             js_out = cleanse_javascript(js_out)
 
-            # Confirm that the output of the Java code is the same as the Python code.
+            # Confirm that the output of the JavaScript code is the same as the Python code.
             self.assertEqual(js_out, py_out, 'Global context')
 
         #==================================================
@@ -590,7 +588,7 @@ class TranspileTestCase(TestCase):
                 shutil.rmtree(test_dir)
                 # print(js_out)
 
-            # Cleanse the Java output, producing a simple
+            # Cleanse the JavaScript output, producing a simple
             # normalized format for exceptions, floats etc.
             js_out = cleanse_javascript(js_out)
 
