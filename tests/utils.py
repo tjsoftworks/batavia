@@ -379,7 +379,7 @@ def cleanse_javascript(input):
 
 
 def cleanse_python(input):
-    out = PYTHON_EXCEPTION.sub('### EXCEPTION ###{linesep}\\g<exception>: \\g<message>'.format(linesep=os.linesep), input)
+    out = PYTHON_EXCEPTION.sub('### EXCEPTION ###{linesep}\\g<exception>'.format(linesep=os.linesep), input)
     stack = PYTHON_STACK.findall(input)
     out = '%s%s%s' % (
         out,
