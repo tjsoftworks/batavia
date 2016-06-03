@@ -337,7 +337,7 @@ def runAsJavaScript(test_dir, main_code, extra_code=None, js=None, run_in_functi
     return out
 
 
-JS_EXCEPTION = re.compile('Traceback \(most recent call last\):\r?\n(  File "(?P<file>.*)", line (?P<line>\d+), in .*\r?\n)+(?P<exception>.*?): (?P<message>.*\r?\n)')
+JS_EXCEPTION = re.compile('Traceback \(most recent call last\):\r?\n(  File "(?P<file>.*)", line (?P<line>\d+), in .*\r?\n)+(?.*\r?\n)+(?P<exception>.*?): .*')
 JS_STACK = re.compile('  File "(?P<file>.*)", line (?P<line>\d+), in .*\r?\n')
 JS_BOOL_TRUE = re.compile('true')
 JS_BOOL_FALSE = re.compile('false')
