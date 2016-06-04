@@ -37,7 +37,7 @@ String.prototype.__lt__ = function(other) {
             return this.valueOf() < other;
         }
     } else {
-        throw new batavia.builtins.TypeError("unorderable types: str() < NoneType()"); 
+        throw new batavia.builtins.TypeError("unorderable types: str() < NoneType()");
     }
 };
 
@@ -137,6 +137,8 @@ String.prototype.__mul__ = function(other) {
     } else if (batavia.isinstance(other, batavia.types.Bool)) {
         result = other == true ? this.valueOf() : '';
         return result;
+    } else if (batavia.isinstance(other, batavia.types.Complex)){
+        throw new batavia.builtins.TypeError("can't multiply sequence by non-int of type 'complex')"
     } else {
         throw new batavia.builtins.TypeError("can't multiply sequence by non-int of type '" + batavia.type_name(other) + "'");
     }
@@ -234,7 +236,7 @@ String.prototype.__ifloordiv__ = function(other) {
 String.prototype.__itruediv__ = function(other) {
     if (batavia.isinstance(other, batavia.types.Bool) ) {
       throw new batavia.builtins.TypeError("unsupported operand type(s) for /=: 'str' and 'bool'");
-    } 
+    }
     throw new batavia.builtins.NotImplementedError("String.__itruediv__ has not been implemented");
 };
 
@@ -242,7 +244,7 @@ String.prototype.__iadd__ = function(other) {
     if (other == null || other == batavia.types.NoneType){
         throw new batavia.builtins.TypeError("Can't convert 'NoneType' object to str implicitly");
     } else if(batavia.isinstance(other, [
-                    batavia.types.Bool, batavia.types.Tuple, batavia.types.Dict, 
+                    batavia.types.Bool, batavia.types.Tuple, batavia.types.Dict,
                     batavia.types.Float, batavia.types.Int, batavia.types.List,
                 ])) {
         throw new batavia.builtins.TypeError("Can't convert '" + batavia.type_name(other) + "' object to str implicitly");

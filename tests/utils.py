@@ -633,7 +633,7 @@ SAMPLE_DATA = [
     # ('bytearray', [3]),
     ('bytes', ["b''", "b'This is another string of bytes'"]),
     # ('class', ['']),
-    # ('complex', ['']),
+    ('complex', ["complex(0,0)","complex(42.42,0)","complex(-11,-11)","complex(3.14,-2.5)"]),
     ('dict', ["{}", "{'a': 1, 'c': 2.3456, 'd': 'another'}"]),
     ('float', ['2.3456', '0.0', '-3.14159']),
     # ('frozenset', ),
