@@ -4,6 +4,7 @@
  *************************************************************************/
 
 batavia.types.Str = String;
+String.__name__ = 'str';
 
 /**************************************************
  * Type conversions
@@ -26,7 +27,18 @@ String.prototype.__str__ = function() {
  **************************************************/
 
 String.prototype.__lt__ = function(other) {
-    return this.valueOf() < other;
+    if (other !== null) {
+        if (batavia.isinstance(other, [
+                    batavia.types.Bool, batavia.types.Int, batavia.types.Float,
+                    batavia.types.List, batavia.types.Dict, batavia.types.Tuple
+                ])) {
+            throw new batavia.builtins.TypeError("unorderable types: str() < " + batavia.type_name(other) + "()");
+        } else {
+            return this.valueOf() < other;
+        }
+    } else {
+        throw new batavia.builtins.TypeError("unorderable types: str() < NoneType()"); 
+    }
 };
 
 String.prototype.__le__ = function(other) {
@@ -131,7 +143,7 @@ String.prototype.__mul__ = function(other) {
 };
 
 String.prototype.__mod__ = function(other) {
-    if (batavia.isinstance(other, [batavia.types.List, batavia.types.Tuple])) {
+    if (batavia.isinstance(other, batavia.types.Tuple)) {
         return batavia._substitute(this, other);
     } else {
         return batavia._substitute(this, [other]);
