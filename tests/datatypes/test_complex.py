@@ -51,7 +51,7 @@ class BinaryComplexOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_add_none',
         'test_add_set',
         'test_add_str',
-        'test_add_tuple'
+        'test_add_tuple',
 
         'test_and_bool',
         'test_and_bytearray',
@@ -92,8 +92,10 @@ class BinaryComplexOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_floor_divide_float',
         'test_floor_divide_frozenset',
         'test_floor_divide_int',
+        'test_floor_divide_list',
         'test_floor_divide_none',
         'test_floor_divide_set',
+        'test_fllor_divide_str',
         'test_floor_divide_tuple',
 
         'test_ge_bool',
@@ -102,7 +104,9 @@ class BinaryComplexOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_ge_class',
         'test_ge_complex',
         'test_ge_dict',
+        'test_ge_float',
         'test_ge_frozenset',
+        'test_ge_int',
         'test_ge_list',
         'test_ge_none',
         'test_ge_set',
@@ -117,6 +121,7 @@ class BinaryComplexOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_gt_dict',
         'test_gt_float',
         'test_gt_frozenset',
+        'test_gt_int',
         'test_gt_list',
         'test_gt_none',
         'test_gt_set',
@@ -293,7 +298,7 @@ class BinaryComplexOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_true_divide_bytearray',
         'test_true_divide_class',
         'test_true_divide_complex',
-        'test_true_divide_dict'
+        'test_true_divide_dict',
         'test_true_divide_float',
         'test_true_divide_frozenset',
         'test_true_divide_int',
