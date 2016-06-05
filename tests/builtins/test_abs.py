@@ -20,5 +20,4 @@ class BuiltinAbsFunctionTests(BuiltinFunctionTestCase, TranspileTestCase):
     not_implemented = [
         'test_bytes',
         'test_class',
-        'test_complex',
     ]
