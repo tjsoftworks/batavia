@@ -95,7 +95,7 @@ class BinaryComplexOperationTests(BinaryOperationTestCase, TranspileTestCase):
         'test_floor_divide_list',
         'test_floor_divide_none',
         'test_floor_divide_set',
-        'test_fllor_divide_str',
+        'test_floor_divide_str',
         'test_floor_divide_tuple',
 
         'test_ge_bool',
