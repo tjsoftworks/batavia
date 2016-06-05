@@ -11,4 +11,4 @@ install:
   - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-14.04.tar.bz2 -C $PWD/travis-phantomjs
   - export PATH=$PWD/travis-phantomjs:$PATH
 script:
-  - "python setup.py test -s tests.datatypes.test_complex""
+  - "python setup.py test -s tests.datatypes.test_complex"
